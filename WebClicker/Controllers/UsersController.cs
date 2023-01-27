@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebClicker.Data;
+using WebClicker.Dto;
 using WebClicker.Services;
 
 namespace WebClicker.Controllers
@@ -16,32 +17,38 @@ namespace WebClicker.Controllers
         }
 
         [HttpPost("createuser")]
-        public IActionResult CreateUser()
+        public ActionResult<UserDto> CreateUser()
         {
             var user = _userService.AddUser();
-            return Ok(user);
+            return Ok(new UserDto(user));
         }
 
         [HttpGet("{id:int}")]
-        public ActionResult<User> GetUser(int id)
+        public ActionResult<UserDto> GetUser(int id)
         {
             var user = _userService.Users.FirstOrDefault(x => x.Id == id);
 
             if (user == null)
                 return NotFound();
 
-            return Ok(user);
+            return Ok(new UserDto(user));
         }
 
         [HttpGet()]
-        public ActionResult<List<User>> GetUsers()
+        public ActionResult<List<UserDto>> GetUsers()
         {
             var users = _userService.Users;
 
             if (users == null)
                 return NotFound();
 
-            return Ok(users);
+            var usersDto = new List<UserDto>();
+
+            foreach (var user in users)
+                usersDto.Add(new UserDto(user));
+
+
+            return Ok(usersDto);
         }
     }
 }
