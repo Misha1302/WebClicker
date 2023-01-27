@@ -7,9 +7,9 @@ namespace WebClicker.Controllers;
 [Route("[controller]")]
 public class ScoreController : Controller
 {
-    private readonly IUserService _userService;
+    private readonly IUsersService _userService;
 
-    public ScoreController(IUserService userService)
+    public ScoreController(IUsersService userService)
     {
         _userService = userService;
     }

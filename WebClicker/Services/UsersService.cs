@@ -2,7 +2,7 @@
 
 namespace WebClicker.Services;
 
-public class UserService : IUserService
+public class UsersService : IUsersService
 {
     private readonly List<User> _users = new List<User>();
     public IReadOnlyList<User> Users => _users;
