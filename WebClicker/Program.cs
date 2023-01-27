@@ -6,7 +6,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IUserService, UserService>();
+builder.Services.AddSingleton<IUsersService, UsersService>();
 
 var app = builder.Build();
 

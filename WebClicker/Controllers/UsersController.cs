@@ -6,11 +6,11 @@ namespace WebClicker.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UserController : Controller
+    public class UsersController : Controller
     {
-        private readonly IUserService _userService;
+        private readonly IUsersService _userService;
 
-        public UserController(IUserService userService)
+        public UsersController(IUsersService userService)
         {
             _userService = userService;
         }

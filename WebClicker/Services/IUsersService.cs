@@ -2,7 +2,7 @@
 
 namespace WebClicker.Services;
 
-public interface IUserService
+public interface IUsersService
 {
     IReadOnlyList<User> Users { get; }
 
